@@ -2,7 +2,7 @@
 // Runs automatically before `npm run build` (see "prebuild" in package.json).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const SITE_URL = 'https://jagtech.in';
+const SITE_URL = 'https://www.jagtech.in';
 const staticPaths = ['/', '/projects', '/about', '/contact'];
 
 const projectsSource = readFileSync(new URL('../src/app/core/data/projects.data.ts', import.meta.url), 'utf8');

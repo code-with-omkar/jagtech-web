@@ -2,7 +2,7 @@ import { Environment } from './environment.model';
 
 export const environment: Environment = {
   production: true,
-  siteUrl: 'https://jagtech.in',
+  siteUrl: 'https://www.jagtech.in',
   apiUrl: '',
   social: {
     // TODO: replace with real profile URLs

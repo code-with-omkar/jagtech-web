@@ -9,7 +9,8 @@
     "test": "ng test",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "serve:ssr": "node dist/jagtech-web/server/server.mjs",
-    "build:godaddy": "npm run build && node scripts/package-godaddy.mjs"
+    "build:godaddy": "npm run build && node scripts/package-godaddy.mjs",
+    "build:cloudflare": "npm run build && node scripts/package-cloudflare.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.7",

@@ -1,0 +1,75 @@
+# JagTech — Apache config for GoDaddy cPanel (Linux) hosting.
+# Upload this file into public_html together with the site files.
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- HTTPS ----------------------------------------------------------------
+  # Enable once the SSL certificate is active in GoDaddy (usually automatic).
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- www → bare domain (optional) -----------------------------------------
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # Remove trailing slash so each page has one URL: /about/ → /about
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} ^/(.+)/$
+  RewriteRule ^ /%1 [L,R=301]
+
+  # Serve prerendered pages: /about → /about/index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+</IfModule>
+
+# Folders with an index.html must not force a trailing-slash redirect (handled above).
+DirectorySlash Off
+
+# Unknown URLs: real 404 status, Angular renders the "Page not found" screen.
+ErrorDocument 404 /index.csr.html
+
+# --- Compression ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Caching ----------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Hashed bundles (main-XXXX.js, styles-XXXX.css, chunk-XXXX.js, media/*) never change.
+  <FilesMatch "^(main|polyfills|styles|chunk)-[A-Za-z0-9_-]+\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # Security headers
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType application/javascript .js .mjs
+</IfModule>

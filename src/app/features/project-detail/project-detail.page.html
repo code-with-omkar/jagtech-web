@@ -1,0 +1,84 @@
+@if (project.value(); as p) {
+  <article>
+    <header class="page-hero">
+      <div class="container">
+        <a routerLink="/projects" class="link-arrow back">← All projects</a>
+
+        <div class="meta">
+          <span class="chip chip--primary">{{ p.category }}</span>
+          <span class="status" [class.status--live]="p.status === 'Live'" [class.status--progress]="p.status !== 'Live'">{{ p.status }}</span>
+        </div>
+
+        <h1 class="h1 title">{{ p.title }}</h1>
+        <p class="lead">{{ p.summary }}</p>
+
+        <div class="links">
+          @if (p.liveUrl) {
+            <a [href]="p.liveUrl" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Visit live ↗</a>
+          } @else {
+            <span class="muted mono small">Live link coming</span>
+          }
+          @if (p.repoUrl) {
+            <a [href]="p.repoUrl" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Source ↗</a>
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="container body">
+      <div class="content">
+        <div class="preview grid-pattern" aria-hidden="true"><span class="mono">{{ p.previewLabel }}</span></div>
+
+        @for (section of p.caseStudy; track section.heading) {
+          <section class="case">
+            <h2 class="h3">{{ section.heading }}</h2>
+            <div class="prose">
+              @for (para of section.body; track $index) {
+                <p>{{ para }}</p>
+              }
+            </div>
+          </section>
+        }
+      </div>
+
+      <aside class="aside">
+        <div class="card">
+          <span class="eyebrow">Key features</span>
+          <ul class="features">
+            @for (f of p.features; track f) {
+              <li>{{ f }}</li>
+            }
+          </ul>
+        </div>
+        <div class="card">
+          <span class="eyebrow">Tech stack</span>
+          <ul class="chip-list">
+            @for (t of p.tech; track t) {
+              <li class="chip">{{ t }}</li>
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section section--bordered cta-band">
+      <div class="container">
+        <h2>Need something like this?</h2>
+        <p>I'm open to freelance work and collaborations.</p>
+        <div class="actions">
+          <a routerLink="/projects" class="btn btn--outline">More projects</a>
+          <a routerLink="/contact" class="btn btn--primary">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+  </article>
+} @else if (project.isLoading()) {
+  <div class="page-hero container"><p class="muted mono">Loading…</p></div>
+} @else {
+  <section class="page-hero container not-found">
+    <span class="eyebrow">404</span>
+    <h1 class="h1">Project not found</h1>
+    <p class="lead">That project doesn't exist or has moved.</p>
+    <a routerLink="/projects" class="btn btn--primary">See all projects</a>
+  </section>
+}

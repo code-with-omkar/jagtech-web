@@ -1,0 +1,33 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="code-layer" aria-hidden="true">
+    @for (s of snippets; track $index) {
+      <pre class="snippet" [style]="s.position" [style.animation-delay.s]="$index * 1.3" [innerHTML]="s.html"></pre>
+    }
+  </div>
+
+  <div class="container content">
+    <p class="eyebrow">Hi, I'm</p>
+    <h1 id="hero-title" class="h1 name">{{ name() }}</h1>
+
+    <p class="role" aria-live="off">
+      <span class="sr-only">{{ roles().join(', ') }}</span>
+      <span aria-hidden="true">{{ typed() ?? roles()[0] }}</span><span class="cursor" aria-hidden="true"></span>
+    </p>
+
+    <p class="tagline">{{ tagline() }}</p>
+
+    <div class="actions">
+      <a routerLink="/projects" class="btn btn--primary">View Projects</a>
+      <a [href]="githubUrl" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+      @if (resumeUrl()) {
+        <a [href]="resumeUrl()" class="btn btn--outline" download>
+          Résumé <span aria-hidden="true">↓</span>
+        </a>
+      }
+    </div>
+  </div>
+
+  <div class="fade" aria-hidden="true"></div>
+</section>

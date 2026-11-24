@@ -1,0 +1,92 @@
+@let p = profile;
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">About</span>
+    <h1 class="h1 title">Why I'm here</h1>
+    <p class="lead">{{ p.aboutLead }}</p>
+    <a [href]="p.resumeUrl" class="btn btn--outline resume" download>Download résumé <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="section section--bordered" aria-labelledby="story-title">
+  <div class="container narrow">
+    <span class="eyebrow">The Story</span>
+    <h2 id="story-title" class="h2">From curiosity to craft</h2>
+    <div class="prose story" appReveal>
+      @for (para of p.story; track $index) {
+        <p>{{ para }}</p>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="section section--bordered" aria-labelledby="exp-title">
+  <div class="container narrow">
+    <span class="eyebrow">Experience</span>
+    <h2 id="exp-title" class="h2">The journey</h2>
+    <ol class="timeline">
+      @for (item of p.experience; track item.period; let i = $index) {
+        <li class="entry" [appReveal]="i * 80">
+          <span class="period mono">{{ item.period }}</span>
+          <h3 class="h3 role">{{ item.role }}</h3>
+          <p class="org">{{ item.organisation }}</p>
+          <p class="desc">{{ item.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- Stack -->
+<section class="section section--bordered" aria-labelledby="skills-title">
+  <div class="container">
+    <span class="eyebrow">Tech Stack</span>
+    <h2 id="skills-title" class="h2">What I build with</h2>
+    <div class="grid grid-4">
+      @for (group of p.skillGroups; track group.title; let i = $index) {
+        <div class="card" [appReveal]="i * 80">
+          <span class="eyebrow group-title">{{ group.title }}</span>
+          <ul class="skills">
+            @for (s of group.skills; track s.name) {
+              <li>
+                <span>{{ s.name }}</span>
+                <span class="chip" [class.chip--primary]="s.level === 'Expert'">{{ s.level }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Principles -->
+<section class="section section--bordered" aria-labelledby="principles-title">
+  <div class="container">
+    <span class="eyebrow">Principles</span>
+    <h2 id="principles-title" class="h2">How I work</h2>
+    <div class="grid grid-2">
+      @for (pr of p.principles; track pr.title; let i = $index) {
+        <div class="card principle" [appReveal]="(i % 2) * 100">
+          <span class="num mono">{{ index(i) }}</span>
+          <h3 class="h3">{{ pr.title }}</h3>
+          <p class="muted">{{ pr.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--bordered cta-band">
+  <div class="container">
+    <h2>Let's build something together.</h2>
+    <p>Open to freelance work and meaningful collaborations.</p>
+    <div class="actions">
+      <a routerLink="/projects" class="btn btn--outline">View projects</a>
+      <a routerLink="/contact" class="btn btn--primary">Get in touch →</a>
+    </div>
+  </div>
+</section>

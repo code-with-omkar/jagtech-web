@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <title>JagTech — Full-Stack Developer</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Omkar Jagtap — full-stack developer building web and mobile applications with Angular, .NET and SQL Server.">
+  <meta name="theme-color" content="#121212">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+  <!-- Apply saved / system theme before first paint to avoid a flash. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('jagtech-theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* storage unavailable: keep default */ }
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

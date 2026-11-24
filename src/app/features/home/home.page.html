@@ -1,0 +1,75 @@
+@let p = profile;
+
+<app-hero [name]="p.name" [roles]="p.roles" [tagline]="p.tagline" [resumeUrl]="p.resumeUrl" />
+
+<!-- Selected work -->
+<section class="section" aria-labelledby="work-title">
+  <div class="container">
+    <span class="eyebrow">Projects</span>
+    <h2 id="work-title" class="h2">Selected Work</h2>
+
+    <div class="grid grid-2">
+      @for (project of featured(); track project.slug; let i = $index) {
+        <app-project-card [project]="project" variant="preview" [appReveal]="i * 100" />
+      }
+    </div>
+
+    <a routerLink="/projects" class="link-arrow more">View all projects →</a>
+  </div>
+</section>
+
+<!-- Tech stack -->
+<section class="section section--bordered" aria-labelledby="stack-title">
+  <div class="container">
+    <span class="eyebrow">Skills</span>
+    <h2 id="stack-title" class="h2">Tech Stack</h2>
+
+    <ul class="stack">
+      @for (tech of p.homeStack; track tech; let i = $index) {
+        <li class="stack-item" [appReveal]="(i % 6) * 50">{{ tech }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- The name -->
+<section class="section section--bordered" aria-labelledby="name-title">
+  <div class="container">
+    <span class="eyebrow">The Name</span>
+    <h2 id="name-title" class="h2">The name behind the brand</h2>
+
+    <div class="grid grid-4">
+      @for (part of p.brandName; track $index; let i = $index) {
+        <div class="card name-card" [appReveal]="i * 80">
+          <span class="name-word">{{ part.word }}</span>
+          <p class="muted">{{ part.meaning }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- About teaser -->
+<section class="section section--bordered" aria-labelledby="about-title">
+  <div class="container about">
+    <div class="prose" appReveal>
+      <span id="about-title" class="eyebrow">About</span>
+      @for (para of p.aboutTeaser; track $index) {
+        <p [class.lead-para]="$first">{{ para }}</p>
+      }
+      <a routerLink="/about" class="link-arrow">More about me →</a>
+    </div>
+
+    <div class="side">
+      <div class="card info" appReveal>
+        <span class="eyebrow">Currently building</span>
+        <p class="info-value">{{ p.currentlyBuilding }}</p>
+      </div>
+      <div class="card info" [appReveal]="100">
+        <span class="eyebrow">Open to</span>
+        <p class="info-value">{{ p.openTo }}</p>
+        <a routerLink="/contact" class="link-arrow">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>

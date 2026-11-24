@@ -1,0 +1,49 @@
+@use 'styles/mixins' as *;
+
+.more { margin-top: var(--space-xl); }
+
+.stack {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include sm { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @include lg { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.stack-item {
+  padding: 1rem;
+  text-align: center;
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  &:hover { border-color: hsl(var(--primary) / 0.6); color: hsl(var(--primary)); }
+}
+
+.name-card { display: flex; flex-direction: column; gap: var(--space-xs); }
+.name-word {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+}
+
+.about {
+  display: grid;
+  gap: var(--space-xl);
+  @include md { grid-template-columns: 3fr 2fr; align-items: start; }
+
+  .link-arrow { margin-top: var(--space-base); }
+}
+
+.lead-para {
+  font-size: 1.125rem;
+  color: hsl(var(--foreground)) !important;
+}
+
+.side { display: grid; gap: var(--space-base); }
+.info .eyebrow { margin-bottom: var(--space-xs); font-size: 0.75rem; }
+.info-value { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 500; }
+.info .link-arrow { margin-top: var(--space-sm); }

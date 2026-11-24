@@ -1,0 +1,94 @@
+@use 'styles/mixins' as *;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur-base) ease, border-color var(--dur-base) ease,
+    backdrop-filter var(--dur-base) ease;
+
+  &--solid {
+    background: hsl(var(--header-bg) / 0.95);
+    border-bottom-color: hsl(var(--border));
+    backdrop-filter: blur(10px);
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.brand { display: inline-flex; border-radius: var(--radius-button); }
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: var(--space-lg);
+  @include md { display: flex; }
+}
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  transition: color var(--dur-fast) ease;
+
+  &:hover, &.is-active { color: hsl(var(--foreground)); }
+  &.is-active::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: -0.4rem;
+    height: 2px; background: hsl(var(--primary)); border-radius: 1px;
+  }
+}
+
+.btn-sm { padding: 0.5rem 1rem; }
+
+.mobile-actions {
+  display: flex; align-items: center; gap: var(--space-xs);
+  @include md { display: none; }
+}
+
+.burger {
+  display: flex; flex-direction: column; justify-content: center; gap: 6px;
+  width: 2.5rem; height: 2.5rem; padding: 0.5rem;
+  background: transparent; border: 0; cursor: pointer;
+
+  span {
+    display: block; height: 2px; width: 100%;
+    background: hsl(var(--foreground)); border-radius: 1px;
+    transition: transform var(--dur-base) var(--ease), opacity var(--dur-fast) ease;
+  }
+
+  &.is-open {
+    span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  }
+}
+
+.mobile-menu {
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--header-bg));
+  padding-block: var(--space-sm);
+  animation: drop var(--dur-base) var(--ease);
+  @include md { display: none; }
+
+  .container { display: flex; flex-direction: column; }
+}
+
+.mobile-link {
+  padding: 0.85rem 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground));
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  &:last-child { border-bottom: 0; }
+  &.is-active, &:hover { color: hsl(var(--primary)); }
+}
+
+@keyframes drop { from { opacity: 0; transform: translateY(-6px); } }

@@ -13,14 +13,13 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { filter } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { Logo } from '../logo/logo';
 import { NAV_LINKS } from '../nav-links';
 import { ThemeToggle } from '../theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RouterLinkActive, Logo, ThemeToggle],
+  imports: [RouterLink, RouterLinkActive, ThemeToggle],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   host: {

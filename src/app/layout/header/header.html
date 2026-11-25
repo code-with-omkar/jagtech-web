@@ -1,8 +1,6 @@
 <header class="header" [class.header--solid]="scrolled() || menuOpen()">
   <div class="container bar">
-    <a routerLink="/" class="brand" aria-label="JagTech home">
-      <app-logo />
-    </a>
+    <span class="brand" aria-hidden="true"></span>
 
     <nav class="nav" aria-label="Primary">
       @for (link of links; track link.path) {

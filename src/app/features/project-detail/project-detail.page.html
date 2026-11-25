@@ -27,7 +27,7 @@
 
     <div class="container body">
       <div class="content">
-        <div class="preview grid-pattern" aria-hidden="true"><span class="mono">{{ p.previewLabel }}</span></div>
+        <img class="preview" [src]="p.image" [alt]="p.imageAlt" width="1280" height="720" fetchpriority="high" />
 
         @for (section of p.caseStudy; track section.heading) {
           <section class="case">

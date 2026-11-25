@@ -25,19 +25,13 @@ export const PROFILE: Profile = {
     'SQL Server', 'T-SQL', 'Entity Framework', 'RabbitMQ', 'Microservices',
     'REST APIs', 'Git', 'IIS',
   ],
-  brandName: [
-    { word: 'Jag', meaning: 'Jagtap — my family name, my roots.' },
-    { word: 'Jag', meaning: 'जग — world in Hindi. I build for the world.' },
-    { word: 'Jagteek', meaning: 'Jagteek — sounds right, feels right.' },
-    { word: 'Tech', meaning: 'New technology — the craft I live by.' },
-  ],
   experience: [
     {
       period: 'Sep 2016 – Present',
       role: 'Senior .NET Developer',
       organisation: 'National Center of Information Technology, Thane',
       description:
-        'Leading end-to-end development of enterprise applications using ASP.NET MVC, .NET Core, Angular, and SQL Server. Own requirement analysis, solution architecture, SQL optimisation, production deployments, and direct client coordination. Mentoring a team of 4 junior developers. Maintaining 99% uptime/SLA across all projects.',
+        'Where my development career began. I joined as a developer writing my first production ASP.NET MVC and SQL Server code, and grew into the senior engineer who now owns enterprise applications end to end — requirement analysis, solution architecture, .NET Core and Angular delivery, SQL optimisation, production deployments, and direct client coordination. Today I mentor a team of 4 junior developers and maintain 99% uptime/SLA across every project I run.',
     },
     {
       period: 'Sep 2015 – Sep 2016',

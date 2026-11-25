@@ -16,8 +16,10 @@ export interface Project {
   readonly features: readonly string[];
   readonly tech: readonly string[];
   readonly featured: boolean;
-  /** Short label shown inside the preview placeholder on home cards. */
-  readonly previewLabel: string;
+  /** Illustration under /public, e.g. '/images/projects/<slug>.svg'. */
+  readonly image: string;
+  /** Describes the illustration for screen readers. */
+  readonly imageAlt: string;
   readonly liveUrl?: string;
   readonly repoUrl?: string;
   readonly caseStudy: readonly CaseStudySection[];
@@ -45,11 +47,6 @@ export interface Principle {
   readonly description: string;
 }
 
-export interface BrandNamePart {
-  readonly word: string;
-  readonly meaning: string;
-}
-
 export interface Profile {
   readonly name: string;
   readonly brand: string;
@@ -63,7 +60,6 @@ export interface Profile {
   readonly responseTime: string;
   readonly location: string;
   readonly homeStack: readonly string[];
-  readonly brandName: readonly BrandNamePart[];
   readonly experience: readonly ExperienceItem[];
   readonly skillGroups: readonly SkillGroup[];
   readonly principles: readonly Principle[];

@@ -32,23 +32,6 @@
   </div>
 </section>
 
-<!-- The name -->
-<section class="section section--bordered" aria-labelledby="name-title">
-  <div class="container">
-    <span class="eyebrow">The Name</span>
-    <h2 id="name-title" class="h2">The name behind the brand</h2>
-
-    <div class="grid grid-4">
-      @for (part of p.brandName; track $index; let i = $index) {
-        <div class="card name-card" [appReveal]="i * 80">
-          <span class="name-word">{{ part.word }}</span>
-          <p class="muted">{{ part.meaning }}</p>
-        </div>
-      }
-    </div>
-  </div>
-</section>
-
 <!-- About teaser -->
 <section class="section section--bordered" aria-labelledby="about-title">
   <div class="container about">

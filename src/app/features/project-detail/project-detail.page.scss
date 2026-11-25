@@ -14,10 +14,10 @@
 }
 
 .preview {
-  display: grid; place-items: center; aspect-ratio: 16 / 9;
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
   margin-bottom: var(--space-xl);
+  background: hsl(var(--muted));
   border: 1px solid hsl(var(--border)); border-radius: var(--radius);
-  color: hsl(var(--muted-foreground));
 }
 
 .case + .case { margin-top: var(--space-xl); }

@@ -1,6 +1,6 @@
 @let p = profile;
 
-<app-hero [name]="p.name" [roles]="p.roles" [tagline]="p.tagline" [resumeUrl]="p.resumeUrl" />
+<app-hero [name]="p.name" [roles]="p.roles" [tagline]="p.tagline" />
 
 <!-- Selected work -->
 <section class="section" aria-labelledby="work-title">
@@ -24,11 +24,7 @@
     <span class="eyebrow">Skills</span>
     <h2 id="stack-title" class="h2">Tech Stack</h2>
 
-    <ul class="stack">
-      @for (tech of p.homeStack; track tech; let i = $index) {
-        <li class="stack-item" [appReveal]="(i % 6) * 50">{{ tech }}</li>
-      }
-    </ul>
+    <app-stack-terminal [items]="p.homeStack" />
   </div>
 </section>
 

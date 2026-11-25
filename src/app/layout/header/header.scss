@@ -22,7 +22,23 @@
   height: var(--header-height);
 }
 
-.brand { display: block; }
+.home {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-button);
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+
+  &:hover, &.is-active { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
+
+  svg {
+    width: 1.15rem; height: 1.15rem;
+    fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+}
 
 .nav {
   display: none;

@@ -63,7 +63,6 @@ export interface Profile {
   readonly experience: readonly ExperienceItem[];
   readonly skillGroups: readonly SkillGroup[];
   readonly principles: readonly Principle[];
-  readonly resumeUrl: string;
 }
 
 export const CONTACT_SUBJECTS = [

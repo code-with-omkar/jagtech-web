@@ -16,7 +16,7 @@ export const PROFILE: Profile = {
     "Since 2016 at the National Center of Information Technology, I've led end-to-end development of enterprise applications — from architecting a microservices-based Peppol E-Invoicing platform to building CAPEX approval workflows and GST compliance engines. I own the full lifecycle: requirement analysis, technical design, SQL optimisation, deployment, and client coordination.",
     "JagTech is my platform. Jag from Jagtap — my roots. Jag from जग — the world I build for. Tech — the craft I live by. This isn't a portfolio. It's a statement of intent.",
   ],
-  currentlyBuilding: 'jagtech.in',
+  currentlyBuilding: 'Mobile app',
   openTo: 'Senior Roles & Freelance',
   responseTime: 'Within 24 hours',
   location: 'Navi Mumbai, India',
@@ -119,5 +119,4 @@ export const PROFILE: Profile = {
         'Structured code reviews and pairing reduced production defects by 60% on my team. Investing in people is the highest-leverage thing a senior developer can do.',
     },
   ],
-  resumeUrl: '/resume/Omkar-Jagtap-Resume.pdf',
 };

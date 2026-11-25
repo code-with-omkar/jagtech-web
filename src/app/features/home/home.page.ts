@@ -8,11 +8,12 @@ import { PROFILE_DATA } from '../../core/services/profile.token';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { ProjectCard } from '../../shared/ui/project-card';
 import { Hero } from './components/hero';
+import { StackTerminal } from './components/stack-terminal';
 
 @Component({
   selector: 'app-home-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, Hero, ProjectCard, RevealDirective],
+  imports: [RouterLink, Hero, ProjectCard, RevealDirective, StackTerminal],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })

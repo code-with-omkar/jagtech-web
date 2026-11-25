@@ -2,26 +2,6 @@
 
 .more { margin-top: var(--space-xl); }
 
-.stack {
-  display: grid;
-  gap: var(--space-sm);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  @include sm { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  @include lg { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-}
-
-.stack-item {
-  padding: 1rem;
-  text-align: center;
-  background: hsl(var(--surface));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
-  &:hover { border-color: hsl(var(--primary) / 0.6); color: hsl(var(--primary)); }
-}
-
 .about {
   display: grid;
   gap: var(--space-xl);

@@ -44,12 +44,17 @@ import { Project } from '../../core/models/portfolio.models';
         }
       </ul>
 
-      @if (variant() === 'detailed') {
-        <div class="foot">
+      <div class="foot">
+        @if (variant() === 'detailed') {
           <span class="muted mono small">{{ p.liveUrl ? 'Live' : 'Live link coming' }}</span>
-          <span class="link-arrow" aria-hidden="true">Case study →</span>
-        </div>
-      }
+        }
+        <a
+          class="link-arrow cta"
+          [routerLink]="['/projects', p.slug]"
+          [attr.aria-label]="'Case study: ' + p.title"
+          data-testid="case-study-link"
+        >Case study →</a>
+      </div>
     </article>
   `,
   styles: `
@@ -70,7 +75,9 @@ import { Project } from '../../core/models/portfolio.models';
     .features li { display: flex; gap: 0.5rem; align-items: baseline; }
     .features li::before { content: '▹'; color: hsl(var(--primary)); font-family: var(--font-heading); }
     .chip-list { margin-top: auto; padding-top: var(--space-xs); }
-    .foot { display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-sm); border-top: 1px solid hsl(var(--border)); }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid hsl(var(--border)); }
+    /* A real link above the card-wide overlay, so the visible call to action always navigates. */
+    .cta { position: relative; z-index: 1; margin-left: auto; padding-block: 0.25rem; cursor: pointer; }
     .small { font-size: 0.75rem; }
   `,
 })

@@ -19,14 +19,14 @@ npm run serve:ssr    # serve the production build → http://localhost:4000
 ```
 src/app/
   core/
-    models/         portfolio.models.ts — Project, Profile, ContactMessage, …
+    models/         portfolio.models.ts — Project, Profile, …
     data/           projects.data.ts, profile.data.ts — ALL site copy lives here
-    repositories/   ProjectRepository, ContactGateway (abstract) + in-memory/mock and HTTP implementations
+    repositories/   ProjectRepository (abstract) + in-memory and HTTP implementations
     services/       ThemeService, project filter, PROFILE_DATA token
     seo/            SeoService — title, description, Open Graph, Twitter, canonical
   layout/           header (mobile menu, scroll state), footer, logo, theme toggle
   shared/           ProjectCard, RevealDirective (scroll fade-in)
-  features/         home, projects, project-detail (/projects/:slug), about, contact, not-found
+  features/         home (incl. #contact section), projects, project-detail (/projects/:slug), about, not-found
 src/styles/         _tokens.scss (colors, fonts, spacing — dark + light), _mixins.scss
 public/             favicon, og-image.png, robots.txt, sitemap.xml
 scripts/            generate-sitemap.mjs (runs on prebuild)
@@ -47,9 +47,8 @@ Set `apiUrl` in `src/environments/environment.ts` (e.g. `https://api.jagtech.in/
 | --- | --- | --- |
 | `GET  {apiUrl}/projects` | Projects, Home | `Project[]` |
 | `GET  {apiUrl}/projects/{slug}` | Project detail | `Project` or 404 |
-| `POST {apiUrl}/contact` | Contact form | body `ContactMessage`, returns any 2xx |
 
-With `apiUrl` empty (default) projects come from `projects.data.ts` and the contact form uses a mock that always succeeds — **messages are not delivered until the API is connected.** Server-side, validate and rate-limit the contact endpoint; the client already has a honeypot field.
+With `apiUrl` empty (default) projects come from `projects.data.ts`. Contact details (email, optional phone, LinkedIn, GitHub) are shown on the home page from `environment.social`; there is no contact form.
 
 ## Deploying
 
@@ -63,4 +62,3 @@ With `apiUrl` empty (default) projects come from `projects.data.ts` and the cont
 - [ ] Replace placeholder employer names ("Software Company", "IT Services", "University") in `profile.data.ts`
 - [ ] Final résumé PDF
 - [ ] Real project screenshots (preview boxes are placeholders)
-- [ ] Contact endpoint in the .NET API

@@ -13,7 +13,7 @@ import { NAV_LINKS } from '../nav-links';
       <div class="container inner">
         <nav class="links" aria-label="Footer">
           @for (link of links; track link.path) {
-            <a [routerLink]="link.path">{{ link.label }}</a>
+            <a [routerLink]="link.path" [fragment]="link.fragment">{{ link.label }}</a>
           }
         </nav>
 

@@ -8,6 +8,8 @@ export const environment: Environment = {
   social: {
     github: 'https://github.com/code-with-omkar',
     linkedin: 'https://www.linkedin.com/in/omkar-jagtap-305574121/',
-    email: '',
+    email: 'omkarjagtap08@gmail.com',
+    // Display format, e.g. '+91 98765 43210'. Empty = hidden.
+    phone: '',
   },
 };

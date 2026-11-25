@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const SITE_URL = 'https://www.jagtech.in';
-const staticPaths = ['/', '/projects', '/about', '/contact'];
+const staticPaths = ['/', '/projects', '/about'];
 
 const projectsSource = readFileSync(new URL('../src/app/core/data/projects.data.ts', import.meta.url), 'utf8');
 const slugs = [...projectsSource.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);

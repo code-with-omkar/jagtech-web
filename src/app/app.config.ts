@@ -5,6 +5,7 @@ import {
   provideRouter,
   withComponentInputBinding,
   withInMemoryScrolling,
+  withRouterConfig,
   withViewTransitions,
 } from '@angular/router';
 
@@ -19,6 +20,8 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
       withViewTransitions({ skipInitialTransition: true }),
       withInMemoryScrolling({ scrollPositionRestoration: 'top', anchorScrolling: 'enabled' }),
+      // Clicking "Contact" while already on /#contact scrolls to it again.
+      withRouterConfig({ onSameUrlNavigation: 'reload' }),
     ),
     provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay()),

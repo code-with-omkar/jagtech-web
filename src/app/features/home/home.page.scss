@@ -19,3 +19,6 @@
 .info .eyebrow { margin-bottom: var(--space-xs); font-size: 0.75rem; }
 .info-value { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 500; }
 .info .link-arrow { margin-top: var(--space-sm); }
+
+// Keep the heading clear of the fixed header when jumping to /#contact.
+.contact { scroll-margin-top: var(--header-height); }

@@ -64,19 +64,3 @@ export interface Profile {
   readonly skillGroups: readonly SkillGroup[];
   readonly principles: readonly Principle[];
 }
-
-export const CONTACT_SUBJECTS = [
-  'Freelance project',
-  'Collaboration',
-  'Job opportunity',
-  'Just saying hello',
-] as const;
-
-export type ContactSubject = (typeof CONTACT_SUBJECTS)[number];
-
-export interface ContactMessage {
-  readonly name: string;
-  readonly email: string;
-  readonly subject: ContactSubject;
-  readonly message: string;
-}

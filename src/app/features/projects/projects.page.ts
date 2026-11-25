@@ -61,7 +61,7 @@ import { ProjectCard } from '../../shared/ui/project-card';
         <h2>Have a project in mind?</h2>
         <p>I'm open to freelance work and collaborations.</p>
         <div class="actions">
-          <a routerLink="/contact" class="btn btn--primary">Get in touch →</a>
+          <a routerLink="/" fragment="contact" class="btn btn--primary">Get in touch →</a>
         </div>
       </div>
     </section>

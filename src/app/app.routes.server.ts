@@ -15,6 +15,7 @@ export const serverRoutes: ServerRoute[] = [
     getPrerenderParams: async () => PROJECTS.map((p) => ({ slug: p.slug })),
   },
   { path: 'about', renderMode: RenderMode.Prerender },
+  // Redirect route (→ /#contact). Prerendered as a redirect page; Cloudflare also 301s it via _redirects.
   { path: 'contact', renderMode: RenderMode.Prerender },
   { path: '**', renderMode: RenderMode.Server, status: 404 },
 ];

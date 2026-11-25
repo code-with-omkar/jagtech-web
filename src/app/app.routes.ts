@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./features/home/home.page').then((m) => m.HomePage) },
@@ -8,6 +9,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/project-detail/project-detail.page').then((m) => m.ProjectDetailPage),
   },
   { path: 'about', loadComponent: () => import('./features/about/about.page').then((m) => m.AboutPage) },
-  { path: 'contact', loadComponent: () => import('./features/contact/contact.page').then((m) => m.ContactPage) },
+  // The contact page moved to the home page; keep old links working.
+  { path: 'contact', redirectTo: () => inject(Router).createUrlTree(['/'], { fragment: 'contact' }) },
   { path: '**', loadComponent: () => import('./features/not-found/not-found.page').then((m) => m.NotFoundPage) },
 ];

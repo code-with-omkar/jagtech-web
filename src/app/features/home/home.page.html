@@ -47,8 +47,17 @@
       <div class="card info" [appReveal]="100">
         <span class="eyebrow">Open to</span>
         <p class="info-value">{{ p.openTo }}</p>
-        <a routerLink="/contact" class="link-arrow">Get in touch →</a>
+        <a routerLink="/" fragment="contact" class="link-arrow">Get in touch →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section section--bordered contact" aria-labelledby="contact-title">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h2 id="contact-title" class="h2">Get in touch</h2>
+    <app-contact-section [profile]="p" appReveal />
   </div>
 </section>

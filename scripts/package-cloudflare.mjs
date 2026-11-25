@@ -40,4 +40,7 @@ writeFileSync(
 `,
 );
 
+// The contact page moved to a section on the home page.
+writeFileSync(new URL('_redirects', out), '/contact /#contact 301\n/contact/ /#contact 301\n');
+
 console.log('Ready to deploy: dist/cloudflare/');

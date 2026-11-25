@@ -13,7 +13,7 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { filter } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { NAV_LINKS } from '../nav-links';
+import { NAV_LINKS, activeOptions } from '../nav-links';
 import { ThemeToggle } from '../theme-toggle/theme-toggle';
 
 @Component({
@@ -32,6 +32,7 @@ export class Header {
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
   protected readonly links = NAV_LINKS;
+  protected readonly activeOptions = activeOptions;
   protected readonly social = environment.social;
   protected readonly scrolled = signal(false);
   protected readonly menuOpen = signal(false);

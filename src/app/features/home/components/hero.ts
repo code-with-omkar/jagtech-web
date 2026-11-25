@@ -9,8 +9,6 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { environment } from '../../../../environments/environment';
-
 interface CodeSnippet {
   readonly html: string;
   readonly position: string;
@@ -44,7 +42,6 @@ export class Hero {
   readonly tagline = input.required<string>();
 
   protected readonly snippets = SNIPPETS;
-  protected readonly social = environment.social;
   /** SSR / reduced-motion: first role shown in full. */
   protected readonly typed = signal<string | null>(null);
 

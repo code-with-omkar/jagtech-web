@@ -7,6 +7,7 @@ import { SeoService } from '../../core/seo/seo.service';
 import { PROFILE_DATA } from '../../core/services/profile.token';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { ProjectCard } from '../../shared/ui/project-card';
+import { TypedText } from '../../shared/ui/typed-text';
 import { Hero } from './components/hero';
 import { ContactSection } from './components/contact-section';
 import { StackTerminal } from './components/stack-terminal';
@@ -14,7 +15,7 @@ import { StackTerminal } from './components/stack-terminal';
 @Component({
   selector: 'app-home-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, Hero, ProjectCard, RevealDirective, StackTerminal, ContactSection],
+  imports: [RouterLink, Hero, ProjectCard, RevealDirective, StackTerminal, ContactSection, TypedText],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })

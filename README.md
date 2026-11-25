@@ -28,7 +28,7 @@ src/app/
   shared/           ProjectCard, RevealDirective (scroll fade-in)
   features/         home, projects, project-detail (/projects/:slug), about, contact, not-found
 src/styles/         _tokens.scss (colors, fonts, spacing — dark + light), _mixins.scss
-public/             favicon, og-image.png, robots.txt, sitemap.xml, resume/
+public/             favicon, og-image.png, robots.txt, sitemap.xml
 scripts/            generate-sitemap.mjs (runs on prebuild)
 ```
 
@@ -37,7 +37,6 @@ scripts/            generate-sitemap.mjs (runs on prebuild)
 - Text, experience, skills, principles → `src/app/core/data/profile.data.ts`
 - Projects and case studies → `src/app/core/data/projects.data.ts` (add `liveUrl` / `repoUrl` when available; new slugs are prerendered and added to the sitemap automatically)
 - Social links and site URL → `src/environments/environment.ts`
-- Résumé → replace `public/resume/Omkar-Jagtap-Resume.pdf` (current file is generated from the site content)
 - Colors / fonts → `src/styles/_tokens.scss`
 
 ## Connecting the .NET API

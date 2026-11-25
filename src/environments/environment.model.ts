@@ -7,7 +7,6 @@ export interface Environment {
   readonly social: {
     readonly github: string;
     readonly linkedin: string;
-    readonly x: string;
     readonly email: string;
   };
 }

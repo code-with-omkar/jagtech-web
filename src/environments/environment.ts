@@ -5,8 +5,8 @@ export const environment: Environment = {
   siteUrl: 'https://www.jagtech.in',
   apiUrl: '',
   social: {
-    // TODO: replace with real profile URLs
-    github: 'https://github.com',
+    // TODO: replace LinkedIn / X with real profile URLs
+    github: 'https://github.com/code-with-omkar',
     linkedin: 'https://linkedin.com',
     x: 'https://x.com',
     email: '',

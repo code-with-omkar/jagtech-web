@@ -11,7 +11,9 @@ export const PROJECTS: readonly Project[] = [
     category: 'Web App',
     status: 'Live',
     featured: true,
-    previewLabel: '⬜ Web Interface',
+    image: '/images/projects/e-invoicing-platform.svg',
+    imageAlt:
+      'Illustration: invoices flowing through a message queue to the Peppol network, with a generated PDF and email dispatch.',
     summary:
       'Microservices-based E-Invoicing platform integrating with the Peppol network — automating invoice validation, asynchronous processing via RabbitMQ, and PDF generation for 500+ transactions/day. Reduced manual processing effort by 30%.',
     features: [
@@ -49,7 +51,9 @@ export const PROJECTS: readonly Project[] = [
     category: 'Web App',
     status: 'Live',
     featured: true,
-    previewLabel: '⬜ Web Interface',
+    image: '/images/projects/capex-tool.svg',
+    imageAlt:
+      'Illustration: a budget dashboard with bar chart beside a multi-step approval workflow.',
     summary:
       'Centralised CAPEX planning and approval platform digitising branding activities, budget approvals, and workflow management across multiple business units. Improved audit transparency and turnaround time by 50%.',
     features: [
@@ -87,7 +91,9 @@ export const PROJECTS: readonly Project[] = [
     category: 'Web App',
     status: 'Live',
     featured: false,
-    previewLabel: '⬜ Web Interface',
+    image: '/images/projects/digiclaim.svg',
+    imageAlt:
+      'Illustration: a claim form with an attached document passing through approval stages to an approved stamp.',
     summary:
       'End-to-end claims lifecycle management — submission, multi-stage approval workflows, document validation, and audit-ready history tracking — with MIS reporting and dashboards for business stakeholders.',
     features: [
@@ -125,7 +131,9 @@ export const PROJECTS: readonly Project[] = [
     category: 'Web App',
     status: 'Live',
     featured: false,
-    previewLabel: '⬜ Web Interface',
+    image: '/images/projects/gst-engine.svg',
+    imageAlt:
+      'Illustration: a GSTR-1 data table moving through upload, validate and submit stages with a reconciliation report.',
     summary:
       'GST compliance engine for uploading, validating, processing, and submitting GSTR-1 data — generating statutory and reconciliation reports for tax compliance across large transaction volumes.',
     features: [
@@ -163,7 +171,9 @@ export const PROJECTS: readonly Project[] = [
     category: 'Web App',
     status: 'In Progress',
     featured: false,
-    previewLabel: '⬜ Web Interface',
+    image: '/images/projects/kargil-infra.svg',
+    imageAlt:
+      'Illustration: a business management dashboard with a building, a secure login shield and API data panels.',
     summary:
       'Personal full-stack project — an infrastructure/business management application built with Angular, .NET Core Web API, and SQL Server. Covers authentication, form validation, RESTful APIs, and end-to-end schema design.',
     features: [

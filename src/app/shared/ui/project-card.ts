@@ -15,11 +15,15 @@ import { Project } from '../../core/models/portfolio.models';
         <span class="status" [class]="statusClass()">{{ p.status }}</span>
       </div>
 
-      @if (variant() === 'preview') {
-        <div class="preview grid-pattern" aria-hidden="true">
-          <span class="mono">{{ p.previewLabel }}</span>
-        </div>
-      }
+      <img
+        class="preview"
+        [src]="p.image"
+        [alt]="p.imageAlt"
+        width="640"
+        height="360"
+        loading="lazy"
+        decoding="async"
+      />
 
       <h3 class="h3 title">
         <a [routerLink]="['/projects', p.slug]" class="stretched">{{ p.title }}</a>
@@ -53,9 +57,9 @@ import { Project } from '../../core/models/portfolio.models';
     .project { display: flex; flex-direction: column; gap: var(--space-sm); height: 100%; }
     .top { display: flex; align-items: center; justify-content: space-between; }
     .preview {
-      display: grid; place-items: center; aspect-ratio: 16 / 9;
+      display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+      background: hsl(var(--muted));
       border: 1px solid hsl(var(--border)); border-radius: calc(var(--radius) - 2px);
-      font-size: 0.8125rem; color: hsl(var(--muted-foreground));
     }
     .title { margin-top: var(--space-xs); }
     .stretched::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }

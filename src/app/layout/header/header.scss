@@ -22,7 +22,7 @@
   height: var(--header-height);
 }
 
-.brand { display: inline-flex; border-radius: var(--radius-button); }
+.brand { display: block; }
 
 .nav {
   display: none;

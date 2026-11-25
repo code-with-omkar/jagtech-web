@@ -6,7 +6,7 @@ export const environment: Environment = {
   // e.g. 'https://localhost:7001/api' once the .NET API is running
   apiUrl: '',
   social: {
-    github: 'https://github.com',
+    github: 'https://github.com/code-with-omkar',
     linkedin: 'https://linkedin.com',
     x: 'https://x.com',
     email: '',

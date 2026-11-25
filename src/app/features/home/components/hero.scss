@@ -10,6 +10,26 @@
   overflow: hidden;
 }
 
+// Slow-drifting colour wash behind the code snippets; strength comes from theme tokens.
+.glow {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 45% at 20% 30%, hsl(var(--hero-glow-1)), transparent 70%),
+    radial-gradient(35% 40% at 80% 25%, hsl(var(--hero-glow-2)), transparent 70%),
+    radial-gradient(45% 45% at 60% 80%, hsl(var(--hero-glow-3)), transparent 70%);
+  filter: blur(40px);
+  animation: drift 18s ease-in-out infinite alternate;
+  @include reduced-motion { animation: none; }
+}
+
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08); }
+  100% { transform: translate3d(-4%, 3%, 0) rotate(-6deg) scale(1.02); }
+}
+
 .code-layer { position: absolute; inset: 0; pointer-events: none; user-select: none; }
 
 .snippet {

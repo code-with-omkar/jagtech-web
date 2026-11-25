@@ -2,18 +2,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
-import { Logo } from '../logo/logo';
 import { NAV_LINKS } from '../nav-links';
 
 @Component({
   selector: 'app-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, Logo],
+  imports: [RouterLink],
   template: `
     <footer class="footer">
       <div class="container inner">
-        <a routerLink="/" aria-label="JagTech home"><app-logo /></a>
-
         <nav class="links" aria-label="Footer">
           @for (link of links; track link.path) {
             <a [routerLink]="link.path">{{ link.label }}</a>

@@ -42,10 +42,9 @@ export class Hero {
   readonly name = input.required<string>();
   readonly roles = input.required<readonly string[]>();
   readonly tagline = input.required<string>();
-  readonly resumeUrl = input<string>('');
 
   protected readonly snippets = SNIPPETS;
-  protected readonly githubUrl = environment.social.github;
+  protected readonly social = environment.social;
   /** SSR / reduced-motion: first role shown in full. */
   protected readonly typed = signal<string | null>(null);
 

@@ -32,7 +32,7 @@ export class Header {
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
   protected readonly links = NAV_LINKS;
-  protected readonly githubUrl = environment.social.github;
+  protected readonly social = environment.social;
   protected readonly scrolled = signal(false);
   protected readonly menuOpen = signal(false);
 

@@ -7,7 +7,7 @@ export const environment: Environment = {
   apiUrl: '',
   social: {
     github: 'https://github.com/code-with-omkar',
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/omkar-jagtap-305574121/',
     x: 'https://x.com',
     email: '',
   },

@@ -18,6 +18,7 @@
 .side { display: grid; gap: var(--space-base); }
 .info .eyebrow { margin-bottom: var(--space-xs); font-size: 0.75rem; }
 .info-value { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 500; }
+.prompt { color: hsl(var(--success)); font-weight: 700; margin-right: 0.25rem; }
 .info .link-arrow { margin-top: var(--space-sm); }
 
 // Keep the heading clear of the fixed header when jumping to /#contact.

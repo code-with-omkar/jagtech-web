@@ -42,11 +42,11 @@
     <div class="side">
       <div class="card info" appReveal>
         <span class="eyebrow">Currently building</span>
-        <p class="info-value">{{ p.currentlyBuilding }}</p>
+        <p class="info-value"><span class="prompt" aria-hidden="true">&gt;</span> <app-typed-text [text]="p.currentlyBuilding" [startDelay]="300" /></p>
       </div>
       <div class="card info" [appReveal]="100">
         <span class="eyebrow">Open to</span>
-        <p class="info-value">{{ p.openTo }}</p>
+        <p class="info-value"><span class="prompt" aria-hidden="true">&gt;</span> <app-typed-text [text]="p.openTo" [startDelay]="1200" [charMs]="40" /></p>
         <a routerLink="/" fragment="contact" class="link-arrow">Get in touch →</a>
       </div>
     </div>
@@ -58,6 +58,6 @@
   <div class="container">
     <span class="eyebrow">Contact</span>
     <h2 id="contact-title" class="h2">Get in touch</h2>
-    <app-contact-section [profile]="p" appReveal />
+    <app-contact-section [profile]="p" />
   </div>
 </section>
